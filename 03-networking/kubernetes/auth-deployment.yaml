@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+    spec:
+      containers:
+      - name: auth
+        image: ariyeb/k8s-net-auth:latest
+        env:
+          - name: PORT
+            value: "4000"
+          - name: REDIS_HOST
+            value: "redis-service.default"
+          - name: REDIS_PORT
+            value: "6379"          
