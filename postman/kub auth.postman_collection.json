@@ -1,0 +1,65 @@
+{
+	"info": {
+		"_postman_id": "e9ee4156-c328-4e18-93cc-28bb07197909",
+		"name": "kub auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:4000/get-token",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"get-token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"token\": \"aaa\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:4000/check-token",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"check-token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

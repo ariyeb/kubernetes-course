@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "1c1cdcd0-9e29-41b0-94cf-d680a8f96d25",
+		"name": "kub users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "subscribe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"a@a.com\",\r\n    \"password\": \"a\"\r\n}"
+				},
+				"url": {
+					"raw": "http://172.22.47.177:31929/subscribe",
+					"protocol": "http",
+					"host": [
+						"172",
+						"22",
+						"47",
+						"177"
+					],
+					"port": "31929",
+					"path": [
+						"subscribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"b@a.com\",\r\n    \"password\": \"a\"\r\n}"
+				},
+				"url": {
+					"raw": "http://172.22.47.177:31929/login",
+					"protocol": "http",
+					"host": [
+						"172",
+						"22",
+						"47",
+						"177"
+					],
+					"port": "31929",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

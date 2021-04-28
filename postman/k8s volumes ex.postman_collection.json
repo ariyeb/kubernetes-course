@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "20be869d-7648-49fe-a0be-36329dae7f01",
+		"name": "k8s volumes ex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add message",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"message\": \"message1\"\r\n}"
+				},
+				"url": {
+					"raw": "http://172.22.40.244:31274/add-message",
+					"protocol": "http",
+					"host": [
+						"172",
+						"22",
+						"40",
+						"244"
+					],
+					"port": "31274",
+					"path": [
+						"add-message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get messages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.22.40.244:31274/messages",
+					"protocol": "http",
+					"host": [
+						"172",
+						"22",
+						"40",
+						"244"
+					],
+					"port": "31274",
+					"path": [
+						"messages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.22.43.25:30623/error",
+					"protocol": "http",
+					"host": [
+						"172",
+						"22",
+						"43",
+						"25"
+					],
+					"port": "30623",
+					"path": [
+						"error"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
