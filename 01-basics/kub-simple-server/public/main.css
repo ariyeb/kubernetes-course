@@ -1,0 +1,17 @@
+.error-button {
+  display: block;
+  margin: 2rem auto;
+  background: red;
+  color: yellow;
+  padding: 1rem;
+  border: none;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.error-button:hover {
+  background: yellow;
+  color: red;
+}

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: simple-server
+  template:
+    metadata:
+      labels:
+        app: simple-server
+    spec:
+      containers:
+      - name: simple-server
+        image: ariyeb/kub-basics:latest
+        env:
+          - name: PORT
+            valueFrom:
+              configMapKeyRef:
+                name: simple-server-env
+                key: PORT

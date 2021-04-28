@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: volumes-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: volumes
+  template:
+    metadata:
+      labels:
+        app: volumes
+    spec:
+      containers:
+      - name: volumes
+        image: ariyeb/volumes-ex
+        volumeMounts:
+          - mountPath: /app/data
+            name: messages-volume
+      volumes:
+        - name: messages-volume
+          persistentVolumeClaim:
+            claimName: volumes-pvc
+          # hostPath:
+          #   path: /hp-messages-data
+          #   type: DirectoryOrCreate
+          # emptyDir: {}
+            
+
