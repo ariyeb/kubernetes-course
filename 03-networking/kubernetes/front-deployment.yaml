@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - name: front
+        image: ariyeb/k8s-net-front:dns
+        env:
+          - name: PORT
+            value: "3000"
+          - name: USERS_ADDRESS
+            value: "users-service.default:8000"
+          - name: MESSAGES_ADDRESS
+            value: "messages-service.default:8080"
+        

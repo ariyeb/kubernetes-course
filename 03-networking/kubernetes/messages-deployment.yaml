@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messages-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: messages
+  template:
+    metadata:
+      labels:
+        app: messages
+    spec:
+      containers:
+      - name: users
+        image: ariyeb/k8s-net-messages:latest
+        env:
+          - name: PORT
+            value: "8080"
+          - name: AUTH_ADDRESS
+            value: "auth-service.default:4000"

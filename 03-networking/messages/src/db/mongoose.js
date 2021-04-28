@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const mongodbHost = process.env.MONGODB_HOST;
-const mongodbPort = process.env.MONGODB_PORT;
+const mongodbHost = process.env.MONGODB_SERVICE_SERVICE_HOST;
+const mongodbPort = process.env.MONGODB_SERVICE_SERVICE_PORT;
 
 const mongodbUrl = `mongodb://${mongodbHost}:${mongodbPort}/messages-db`;
 

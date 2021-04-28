@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = "http://localhost:8080/";
+const URL = "messages/";
 
 const getMessages = async (userId, token) => {
     console.log(userId, token);
