@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  mongodb:
+    image: mongo
+  messages:
+    build: ./
+    ports:
+      - 3000:3000
+    env_file:
+      - ./config/dev.env
+    depends_on:
+      - mongodb
