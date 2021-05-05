@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messages-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: messages
+  template:
+    metadata:
+      labels:
+        app: messages
+    spec:
+      containers:
+      - name: messages
+        image: ariyeb/k8s-messages:dep
+        env:
+          - name: PORT
+            value: "3000"
+          - name: MONGODB
+            value: "mongodb://mongodb-service.default:27017/stam-db"

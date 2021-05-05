@@ -1,0 +1,46 @@
+1.	eks --> create cluster
+2.	iam role:
+    a.	create role
+    b.	eks
+    c.	EKS – Cluster  - AmazonEKSClusterPolicy 
+    d.	שם
+3.	Cloud formation – eks vpc
+    a.	url from:
+    https://docs.aws.amazon.com/eks/latest/userguide/create-public-private-vpc.html#create-vpc
+    b.	שם
+4.	Back to eks choosing the eksVpc
+5.	Cluster endpoints access – public and private
+6.	Cluster creation
+7.	Aws cli with credentials
+    a.	Download keys
+    b.	aws configure
+    c.	שם, סיסמה ואיזור - הרביעי לא חשוב
+8.	aws eks --region eu-west-1 update-kubeconfig --name kub-dep-demo
+9.	worker nodes
+    a.	in the cluster go to compute
+    b.	add node group
+    c.	name: messages-nodes
+    d.	iam role - ec2
+    e.	permissions:
+            AmazonEKSWorkerNodePolicy 
+            AmazonEKS_CNI_Policy 			networking
+            AmazonEC2ContainerRegistryReadOnly
+    f.	שם
+    g.	בחירת הרול
+    h.	Instances type: t3.small
+    i.	Disable: Allow remote access to nodes
+10.	Aws efs csi
+    a.	https://github.com/kubernetes-sigs/aws-efs-csi-driver
+    driver for AWS efs in k8s
+    b.	kubectl apply -k "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/?ref=release-1.2"
+11.	ec2 -security groups
+    name: eks-efs
+    vpc: eksVpc
+    inbound rules:
+        type: NFS; source  = custom IPv4 CIDER of eksVpc in VPC
+12.	efs:
+    a.	new efs --> name and vpc
+    b.	vpc: eksVpc
+    c.	customize -->   next --> choose the eks-efs security group --> next next create
+    d.	copy file system ID
+13.	creating pv
